@@ -20,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rey.material.widget.CheckBox;
 
+import flickster.shopping.design.Model.Users;
+import flickster.shopping.design.Prevalent.Prevalent;
 import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity
@@ -82,7 +84,6 @@ public class LoginActivity extends AppCompatActivity
             }
         });
     }
-
 
 
     private void LoginUser()
