@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "110047056511",
+    "firebase_url": "https://flickster50-42ba2.firebaseio.com",
+    "project_id": "flickster50-42ba2",
+    "storage_bucket": "flickster50-42ba2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110047056511:android:aeaf8fe928b2e9b11e654a",
+        "android_client_info": {
+          "package_name": "flickster.shopping.design"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110047056511-0l4bhcv5r29iluu6342ra9akejkspa6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZFmv4KCGHUeBMjJuoP3ZHvlUNUo1APgs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110047056511-0l4bhcv5r29iluu6342ra9akejkspa6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
