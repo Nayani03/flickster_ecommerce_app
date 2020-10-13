@@ -2,6 +2,7 @@ package flickster.shopping.design.ViewHolder;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import flickster.shopping.design.Interface.ItemClickListner;
 import flickster.shopping.design.R;
@@ -9,7 +10,8 @@ import flickster.shopping.design.R;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ProductViewHolder extends RecyclerView.ViewHolder implements View.onClickListener {
+public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
     {
         public TextView txtProductName, txtProductDescription, txtProductPrice;
         public ImageView imageView;
@@ -37,4 +39,8 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.o
         {
             listner.onClick(view, getAdapterPosition(), false);
         }
+    }
+
+    public ProductViewHolder(@NonNull View itemView) {
+        super(itemView);
     }
