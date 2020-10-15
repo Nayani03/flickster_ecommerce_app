@@ -41,6 +41,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,6 +114,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         holder.txtProductDescription.setText(model.getDescription());
                         holder.txtProductPrice.setText("Price = " + model.getPrice() + "$");
                         Picasso.get().load(model.getImage()).into(holder.imageView);
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent=new Intent(HomeActivity.this,ProductDetailsActivity.class);
+                                intent.putExtra("pid",model.getPid());
+                                startActivity();
+                            }
+                        });
                     }
 
                     @NonNull
