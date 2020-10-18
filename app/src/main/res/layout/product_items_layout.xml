@@ -55,6 +55,16 @@
             android:textSize="16dp"
             android:textColor="@color/colorPrimaryDark"
             />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:layout_margin="15dp"
+            android:layout_alignParentBottom="true"
+            android:textColor="@android:color/white"
+            android:text="Add To Cart"
+            android:textSize="16dp"
+            android:id="@+id/pd_add_to_cart_button"/>
 
     </RelativeLayout>
 
