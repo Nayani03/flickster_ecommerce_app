@@ -16,6 +16,7 @@
         android:layout_marginTop="260dp"
         />
 
+
     <EditText
         android:id="@+id/register_username_input"
         android:layout_width="match_parent"

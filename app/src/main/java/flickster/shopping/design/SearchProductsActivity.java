@@ -21,6 +21,7 @@ public class SearchProductsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_products);
 
         inputText = findViewById(R.id.search_product_name);
+
         searchBtn = findViewById(R.id.search_btn);
         searchList = findViewById(R.id.search_list);
         searchList.setLayoutManager(new LinearLayoutManager(SearchProductsActivity.this));
