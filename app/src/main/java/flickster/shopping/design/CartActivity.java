@@ -1,15 +1,5 @@
 package flickster.shopping.design;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import flickster.shopping.design.Model.Cart;
-import flickster.shopping.design.Prevalent.Prevalent;
-import flickster.shopping.design.ViewHolder.CartViewHolder;
-
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,8 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -27,23 +24,50 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import flickster.shopping.design.Model.Cart;
+import flickster.shopping.design.Prevalent.Prevalent;
+import flickster.shopping.design.ViewHolder.CartViewHolder;
+
 public class CartActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private Button NextProcessBtn;
     private TextView txtTotalAmount;
+private String totalAmount = " ";
+private int overTotalPrice=0;
 
-
+private EditText nameEditText, phoneEditText, addressEditText, cityEditText;
     @Override
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+        totalAmount = getIntent().getStringExtra("Total Price : ");
+
         recyclerView = findViewById(R.id.cart_list);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         NextProcessBtn=(Button) findViewById(R.id.next_btn);
         txtTotalAmount =(TextView) findViewById(R.id.total_price);
+        nameEditText=(EditText)findViewById(R.id.shipment_name);
+        phoneEditText=(EditText)findViewById(R.id.shipment_phone);
+        addressEditText=(EditText)findViewById(R.id.shipment_address);
+        cityEditText=(EditText)findViewById(R.id.shipment_city);
+
+        NextProcessBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+txtTotalAmount.setText("Total Price  : Rs. " + String.valueOf(overTotalPrice));
+
+                Intent intent = new Intent(CartActivity.this, ConfirmFInalOrderActivity.class);
+            intent.putExtra("Total Price : ", String.valueOf(overTotalPrice));
+            startActivity(intent);
+            finish();
+            }
+        });
     }
     @Override
     protected void onStart()
@@ -60,7 +84,14 @@ public class CartActivity extends AppCompatActivity {
                 holder.txtProductQuantity.setText("Quantity = " + cart.getQuantity());
                 holder.txtProductPrice.setText("Price " + cart.getPrice());
                 holder.txtProductName.setText(cart.getPname());
+
+                int oneTypeProductPrice = ((Integer.valueOf(model.getPrice())));
+                overTotalPrice += oneTypeProductPrice;
+
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+
+
                     @Override
                     public void onClick(View view) {
                         CharSequence options[] = new CharSequence[]
