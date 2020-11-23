@@ -21,7 +21,7 @@ public class ConfirmFInalOrderActivity extends AppCompatActivity {
         nameEditText = (EditText)  findViewById(R.id.shipment_name);
         phoneEditText = (EditText)  findViewById(R.id.shipment_phone);
         addessEditText = (EditText)  findViewById(R.id.shipment_address);
-     cityEditText = (EditText)  findViewById(R.id.shipment_city);
+        cityEditText = (EditText)  findViewById(R.id.shipment_city);
 
     }
 }
