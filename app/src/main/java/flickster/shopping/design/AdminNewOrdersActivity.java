@@ -1,5 +1,6 @@
 package flickster.shopping.design;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -69,6 +71,34 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                     }
                 });
 
+              holder.itemView.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+                      CharSequence options[]=new CharSequence[]
+                              {
+                                      "yes",
+                                      "no"
+                              };
+                      AlertDialog.Builder builder = new AlertDialog.Builder(AdminNewOrdersActivity.this ) ;
+                      builder.setTitle("have you shipped this orderproducts ?");
+                      builder.setItems(options, new DialogInterface.OnClickListener() {
+                          @Override
+                          public void onClick(DialogInterface dialogInterface, int i) {
+                              if(i== 0)
+                              {
+                                  String uID=getRef(i).getKey();
+                                  RemoveOrder(uID);
+                              }
+                              else
+                              {
+                                  finish();
+                              }
+
+                          }
+                      });
+                      builder.show();
+                  }
+              });
             }
 
             @NonNull
@@ -86,6 +116,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
         adapter.startListening();
     }
 
+
     public static class AdminOrdersViewHolder extends RecyclerView.ViewHolder{
 
         public TextView username, userPhoneNumber,userTotalPrice,userDateTime, userShippingAddress;
@@ -102,4 +133,8 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
             showOrderBtn= itemView.findViewById(R.id.show_all_products);
         }
     }
+    private void RemoveOrder(String uID) {
+        ordersRef.child(uID).removeValue();
+    }
+
 }
