@@ -1,5 +1,6 @@
 package flickster.shopping.design;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,13 +51,23 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                 adapter = new FirebaseRecyclerAdapter <AdminOrders, AdminOrdersViewHolder>(options){
 
             @Override
-            protected void onBindViewHolder(@NonNull AdminOrdersViewHolder holder, int i, @NonNull AdminOrders model) {
+            protected void onBindViewHolder(@NonNull AdminOrdersViewHolder holder, final int i, @NonNull final AdminOrders model) {
 
                 holder.username.setText("Name "+ model.getName());
                 holder.userPhoneNumber.setText("Phone "+ model.getPhone());
                 holder.userTotalPrice.setText("Total Amount  Rs."+ model.getTotalAmount());
                 holder.userShippingAddress.setText("Address "+ model.getAddress()+ "State "+ model.getCity());
                 holder.userDateTime.setText("Date "+ model.getDate() + "Time " + model.getTime());
+                holder.showOrderBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String uID=getRef(i).getKey();
+                        Intent intent =new Intent(AdminNewOrdersActivity.this , AdminUserProductsActivity.class);
+                        intent.putExtra("uid", uID);
+                        startActivity(intent);
+
+                    }
+                });
 
             }
 
