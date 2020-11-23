@@ -17,7 +17,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentTop="true">
 
-            <com.rey.material.widget.EditText
+            <EditText
                 android:id="@+id/search_product_name"
                 android:layout_width="290dp"
                 android:layout_height="wrap_content"
@@ -28,9 +28,7 @@
                 android:layout_centerVertical="true"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/colorPrimaryDark"
-                android:textSize="16dp"
-
-                />
+                android:textSize="16dp"/>
 
             <Button
                 android:id="@+id/search_btn"
