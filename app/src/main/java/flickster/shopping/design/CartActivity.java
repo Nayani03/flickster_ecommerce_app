@@ -53,19 +53,19 @@ private EditText nameEditText, phoneEditText, addressEditText, cityEditText;
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        NextProcessBtn=(Button) findViewById(R.id.next_btn);
-        txtTotalAmount =(TextView) findViewById(R.id.total_price);
-        nameEditText=(EditText)findViewById(R.id.shipment_name);
-        phoneEditText=(EditText)findViewById(R.id.shipment_phone);
-        addressEditText=(EditText)findViewById(R.id.shipment_address);
-        cityEditText=(EditText)findViewById(R.id.shipment_city);
-        txtMsg1=(TextView)findViewById(R.id.msg) ;
+        NextProcessBtn= findViewById(R.id.next_btn);
+        txtTotalAmount = findViewById(R.id.total_price);
+        nameEditText= findViewById(R.id.shipment_name);
+        phoneEditText= findViewById(R.id.shipment_phone);
+        addressEditText= findViewById(R.id.shipment_address);
+        cityEditText= findViewById(R.id.shipment_city);
+        txtMsg1= findViewById(R.id.msg);
 
         NextProcessBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-txtTotalAmount.setText("Total Price  : Rs. " + String.valueOf(overTotalPrice));
+txtTotalAmount.setText("Total Price  : Rs. " + overTotalPrice);
 
                 Intent intent = new Intent(CartActivity.this, ConfirmFInalOrderActivity.class);
             intent.putExtra("Total Price : ", String.valueOf(overTotalPrice));
@@ -100,7 +100,7 @@ txtTotalAmount.setText("Total Price  : Rs. " + String.valueOf(overTotalPrice));
 
                     @Override
                     public void onClick(View view) {
-                        CharSequence options[] = new CharSequence[]
+                        CharSequence[] options = new CharSequence[]
                                 {
                                         "Edit",
                                         "Remove"

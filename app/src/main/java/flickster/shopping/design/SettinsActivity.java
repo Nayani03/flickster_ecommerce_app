@@ -48,13 +48,13 @@ public class SettinsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settins);storageProfilePrictureRef = FirebaseStorage.getInstance().getReference().child("Profile pictures");
 
-        profileImageView = (CircleImageView) findViewById(R.id.settings_profile_image);
-        fullNameEditText = (EditText) findViewById(R.id.settings_full_name);
-        userPhoneEditText = (EditText) findViewById(R.id.settings_phone_number);
-        addressEditText = (EditText) findViewById(R.id.settings_address);
-        profileChangeTextBtn = (TextView) findViewById(R.id.profile_image_change_btn);
-        closeTextBtn = (TextView) findViewById(R.id.close_settings_btn);
-        saveTextButton = (TextView) findViewById(R.id.update_account_settings_btn);
+        profileImageView = findViewById(R.id.settings_profile_image);
+        fullNameEditText = findViewById(R.id.settings_full_name);
+        userPhoneEditText = findViewById(R.id.settings_phone_number);
+        addressEditText = findViewById(R.id.settings_address);
+        profileChangeTextBtn = findViewById(R.id.profile_image_change_btn);
+        closeTextBtn = findViewById(R.id.close_settings_btn);
+        saveTextButton = findViewById(R.id.update_account_settings_btn);
 
 
         userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
