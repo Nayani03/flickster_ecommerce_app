@@ -1,4 +1,4 @@
-package flickster.shopping.design;
+package flickster.shopping.design.Admin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
+
+import flickster.shopping.design.R;
 
 public class AdminMaintainProductsActivity extends AppCompatActivity {
 private Button applyChanges;

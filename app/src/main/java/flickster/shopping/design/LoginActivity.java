@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rey.material.widget.CheckBox;
 
+import flickster.shopping.design.Admin.AdminCategoryActivity;
 import flickster.shopping.design.Model.Users;
 import flickster.shopping.design.Prevalent.Prevalent;
 import io.paperdb.Paper;
@@ -29,7 +30,7 @@ public class LoginActivity extends AppCompatActivity
     private EditText InputPhoneNumber, InputPassword;
     private Button LoginButton;
     private ProgressDialog loadingBar;
-    private TextView AdminLink, NotAdminLink;
+    private TextView AdminLink, NotAdminLink, ForgetPasswordLink;
 
     private String parentDbName = "Users";
     private CheckBox chkBoxRememberMe;
@@ -49,8 +50,9 @@ public class LoginActivity extends AppCompatActivity
         NotAdminLink = findViewById(R.id.not_admin_panel_link);
         loadingBar = new ProgressDialog(this);
 
+ForgetPasswordLink = findViewById(R.id.forget_password_link);
 
-        chkBoxRememberMe = findViewById(R.id.remember_me_chkb);
+chkBoxRememberMe = findViewById(R.id.remember_me_chkb);
         Paper.init(this);
 
 
@@ -59,6 +61,14 @@ public class LoginActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 LoginUser();
+            }
+        });
+        ForgetPasswordLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(LoginActivity.this, ResetPasswordActivity.class);
+                intent.putExtra("login","check");
+                startActivity(intent);
             }
         });
 

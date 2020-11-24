@@ -1,4 +1,4 @@
-package flickster.shopping.design;
+package flickster.shopping.design.Admin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import flickster.shopping.design.HomeActivity;
+import flickster.shopping.design.MainActivity;
+import flickster.shopping.design.R;
 
 public class AdminCategoryActivity extends AppCompatActivity {
     private ImageView tShirts, sportsTShirts, femaleDresses, sweathers;
