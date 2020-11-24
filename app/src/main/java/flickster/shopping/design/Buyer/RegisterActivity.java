@@ -1,4 +1,4 @@
-package flickster.shopping.design;
+package flickster.shopping.design.Buyer;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+
+import flickster.shopping.design.R;
 
 public class RegisterActivity extends AppCompatActivity {
     private Button CreateAccountButton;

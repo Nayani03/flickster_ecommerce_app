@@ -1,4 +1,4 @@
-package flickster.shopping.design;
+package flickster.shopping.design.Buyer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,6 +27,7 @@ import java.util.HashMap;
 
 import flickster.shopping.design.Model.Products;
 import flickster.shopping.design.Prevalent.Prevalent;
+import flickster.shopping.design.R;
 
 
 public class ProductDetailsActivity extends AppCompatActivity {

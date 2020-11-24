@@ -1,4 +1,4 @@
-package flickster.shopping.design;
+package flickster.shopping.design.Buyer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,11 +16,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import flickster.shopping.design.Prevalent.Prevalent;
+import flickster.shopping.design.R;
 
 public class ConfirmFInalOrderActivity extends AppCompatActivity {
 

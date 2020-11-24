@@ -1,8 +1,10 @@
-package flickster.shopping.design;
+package flickster.shopping.design.Buyer;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import flickster.shopping.design.R;
 
 public class ResetPasswordActivity extends AppCompatActivity {
 private String check = "";
@@ -24,6 +26,11 @@ private String check = "";
 
         }
         else if (check.equals("login")){
+
+
+
+
+
 
         }
     }

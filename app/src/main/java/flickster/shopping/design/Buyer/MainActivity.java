@@ -1,4 +1,4 @@
-package flickster.shopping.design;
+package flickster.shopping.design.Buyer;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import flickster.shopping.design.Model.Users;
 import flickster.shopping.design.Prevalent.Prevalent;
+import flickster.shopping.design.R;
+import flickster.shopping.design.Sellers.SellerRegistrationActivity;
 import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button joinNowButton, loginButton;
     private ProgressDialog loadingBar;
 
+private TextView sellerBegin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.main_login_btn);
         loadingBar = new ProgressDialog(this);
 
+sellerBegin= findViewById(R.id.seller_begin);
 
         Paper.init(this);
 
@@ -61,7 +66,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+sellerBegin.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this, SellerRegistrationActivity.class);
+        startActivity(intent);
+    }
+});
         String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
         String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
 

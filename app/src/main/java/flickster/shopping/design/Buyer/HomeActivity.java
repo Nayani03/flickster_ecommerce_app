@@ -1,6 +1,5 @@
-package flickster.shopping.design;
+package flickster.shopping.design.Buyer;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -31,6 +30,7 @@ import com.squareup.picasso.Picasso;
 import de.hdodenhof.circleimageview.CircleImageView;
 import flickster.shopping.design.Model.Products;
 import flickster.shopping.design.Prevalent.Prevalent;
+import flickster.shopping.design.R;
 import flickster.shopping.design.ViewHolder.ProductViewHolder;
 import io.paperdb.Paper;
 
