@@ -1,4 +1,4 @@
-package flickster.shopping.design;
+package flickster.shopping.design.Admin;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import flickster.shopping.design.Model.AdminOrders;
+import flickster.shopping.design.R;
 
 public class AdminNewOrdersActivity extends AppCompatActivity {
 

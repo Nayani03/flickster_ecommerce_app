@@ -1,4 +1,4 @@
-package flickster.shopping.design;
+package flickster.shopping.design.Admin;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -28,6 +28,8 @@ import com.rey.material.widget.EditText;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+
+import flickster.shopping.design.R;
 
 public class AdminAddNewProductActivity extends AppCompatActivity {
 

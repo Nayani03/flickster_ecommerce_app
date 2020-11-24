@@ -1,12 +1,12 @@
 package flickster.shopping.design;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +43,9 @@ public class SettinsActivity extends AppCompatActivity {
     private StorageTask uploadTask;
     private StorageReference storageProfilePrictureRef;
     private String checker = "";
+
+    private Button securityQuesBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +59,7 @@ public class SettinsActivity extends AppCompatActivity {
         closeTextBtn = findViewById(R.id.close_settings_btn);
         saveTextButton = findViewById(R.id.update_account_settings_btn);
 
-
+securityQuesBtn= findViewById(R.id.security_questions_btn);
         userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
 
 
@@ -67,7 +70,14 @@ public class SettinsActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+securityQuesBtn.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent= new Intent(SettinsActivity.this, ResetPasswordActivity.class);
+        intent.putExtra("settings","check");
+        startActivity(intent);
+    }
+});
 
         saveTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
