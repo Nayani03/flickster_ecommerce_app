@@ -8,8 +8,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import flickster.shopping.design.HomeActivity;
-import flickster.shopping.design.MainActivity;
+import flickster.shopping.design.Buyer.HomeActivity;
+import flickster.shopping.design.Buyer.MainActivity;
 import flickster.shopping.design.R;
 
 public class AdminCategoryActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package flickster.shopping.design;
+package flickster.shopping.design.Buyer;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -23,6 +23,7 @@ import com.rey.material.widget.CheckBox;
 import flickster.shopping.design.Admin.AdminCategoryActivity;
 import flickster.shopping.design.Model.Users;
 import flickster.shopping.design.Prevalent.Prevalent;
+import flickster.shopping.design.R;
 import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity

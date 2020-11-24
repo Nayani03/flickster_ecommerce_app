@@ -1,4 +1,4 @@
-package flickster.shopping.design;
+package flickster.shopping.design.Buyer;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -32,6 +32,7 @@ import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import flickster.shopping.design.Prevalent.Prevalent;
+import flickster.shopping.design.R;
 
 public class SettinsActivity extends AppCompatActivity {
     private CircleImageView profileImageView;

@@ -1,4 +1,4 @@
-package flickster.shopping.design;
+package flickster.shopping.design.Buyer;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import flickster.shopping.design.Model.Cart;
 import flickster.shopping.design.Prevalent.Prevalent;
+import flickster.shopping.design.R;
 import flickster.shopping.design.ViewHolder.CartViewHolder;
 
 public class CartActivity extends AppCompatActivity {
