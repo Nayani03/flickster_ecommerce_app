@@ -56,7 +56,7 @@ private EditText nameEditText, phoneEditText, addressEditText, cityEditText;
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         NextProcessBtn= findViewById(R.id.next_btn);
-        txtTotalAmount = findViewById(R.id.total_price);
+        txtTotalAmount = findViewById(R.id.page_title);
         nameEditText= findViewById(R.id.shipment_name);
         phoneEditText= findViewById(R.id.shipment_phone);
         addressEditText= findViewById(R.id.shipment_address);
