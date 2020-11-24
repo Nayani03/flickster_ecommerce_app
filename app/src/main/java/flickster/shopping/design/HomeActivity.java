@@ -1,5 +1,6 @@
 package flickster.shopping.design;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -137,7 +138,7 @@ if(bundle!=null){
                                 public void onClick(View view) {
 
                                     if (type.equals("Admin")) {
-                                        Intent intent = new Intent(AdminMaintainProductsActivity.this, ProductDetailsActivity.class);
+                                        Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
                                         intent.putExtra("pid", model.getPid());
                                         startActivity(intent);
 
