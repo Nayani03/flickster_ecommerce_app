@@ -124,6 +124,9 @@ if(bundle!=null){
                             
 
 
+
+
+
                         }
                         Picasso.get().load(model.getImage()).into(holder.imageView);
 
