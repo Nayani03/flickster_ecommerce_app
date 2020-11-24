@@ -64,12 +64,19 @@ if(bundle!=null){
         setSupportActionBar(toolbar);
 
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(HomeActivity.this,CartActivity.class);
-                startActivity(intent);
+
+                if (!type.equals("Admin")) {
+                    Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
+                    startActivity(intent);
+
+
+                }
+
+
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
             }
@@ -90,8 +97,11 @@ if(bundle!=null){
         TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
         CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
-        userNameTextView.setText(Prevalent.currentOnlineUser.getName());
-        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+        if(!type.equals("Admin")){
+
+            userNameTextView.setText(Prevalent.currentOnlineUser.getName());
+            Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+        }
 
 
         recyclerView = findViewById(R.id.recycler_menu);
@@ -120,15 +130,6 @@ if(bundle!=null){
                         holder.txtProductDescription.setText(model.getDescription());
                         holder.txtProductPrice.setText("Price = " + model.getPrice() + "$");
 
-                        if(!type.equals("Admin")){
-
-                            
-
-
-
-
-
-                        }
                         Picasso.get().load(model.getImage()).into(holder.imageView);
 
 
@@ -211,13 +212,22 @@ if(bundle!=null){
 
         if (id == R.id.nav_cart)
         {
-            Intent intent = new Intent(HomeActivity.this, SettinsActivity.class);
-            startActivity(intent);
+            if (!type.equals("Admin")) {
+
+                Intent intent = new Intent(HomeActivity.this, SettinsActivity.class);
+                startActivity(intent);
+            }
+
+
         }
         else if (id == R.id.nav_search)
         {
-            Intent intent = new Intent(HomeActivity.this, SearchProductsActivity.class);
-            startActivity(intent);
+            if (!type.equals("Admin")) {
+                Intent intent = new Intent(HomeActivity.this, SearchProductsActivity.class);
+                startActivity(intent);
+
+            }
+
         }
         else if (id == R.id.nav_categories)
         {
@@ -225,17 +235,26 @@ if(bundle!=null){
         }
         else if (id == R.id.nav_settings)
         {
-            Intent intent = new Intent(HomeActivity.this, SettinsActivity.class);
-            startActivity(intent);
-        }
+            if (!type.equals("Admin")) {
+
+                Intent intent = new Intent(HomeActivity.this, SettinsActivity.class);
+                startActivity(intent);
+            }
+            }
+
         else if (id == R.id.nav_logout)
         {
-            Paper.book().destroy();
 
-            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-            finish();
+            if (!type.equals("Admin")) {
+
+                Paper.book().destroy();
+
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
