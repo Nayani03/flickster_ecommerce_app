@@ -31,8 +31,8 @@
         </activity>
         <activity android:name=".Buyer.LoginActivity" />
         <activity android:name=".Buyer.RegisterActivity" />
-        <activity android:name=".Admin.AdminAddNewProductActivity" />
-        <activity android:name=".Admin.AdminCategoryActivity" />
+        <activity android:name=".Sellers.SellerAddNewProductActivity" />
+        <activity android:name=".Admin.SellerProductCategoryActivity" />
         <activity
             android:name=".Buyer.HomeActivity"
             android:label="@string/title_activity_home"
