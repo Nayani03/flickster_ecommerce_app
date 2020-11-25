@@ -40,6 +40,8 @@ public class AdminCheckNewProductsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_check_new_products);
 
 
+
+
         unverifiedProducts = FirebaseDatabase.getInstance().getReference().child("Products");
 
 
