@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rey.material.widget.CheckBox;
 
-import flickster.shopping.design.Admin.SellerProductCategoryActivity;
+import flickster.shopping.design.Admin.AdminHomeActivity;
 import flickster.shopping.design.Model.Users;
 import flickster.shopping.design.Prevalent.Prevalent;
 import flickster.shopping.design.R;
@@ -154,7 +154,7 @@ chkBoxRememberMe = findViewById(R.id.remember_me_chkb);
                                 Toast.makeText(LoginActivity.this, "Welcome Admin, you are logged in Successfully...", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
-                                Intent intent = new Intent(LoginActivity.this, SellerProductCategoryActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                                 startActivity(intent);
                             }
                             else if (parentDbName.equals("Users"))
