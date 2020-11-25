@@ -33,7 +33,7 @@
         <activity android:name=".Buyer.LoginActivity" />
         <activity android:name=".Buyer.RegisterActivity" />
         <activity android:name=".Sellers.SellerAddNewProductActivity" />
-        <activity android:name=".Admin.SellerProductCategoryActivity" />
+        <activity android:name=".Sellers.SellerProductCategoryActivity" />
         <activity
             android:name=".Buyer.HomeActivity"
             android:label="@string/title_activity_home"

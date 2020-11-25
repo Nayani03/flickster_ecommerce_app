@@ -23,6 +23,7 @@ import com.squareup.picasso.Picasso;
 import java.util.HashMap;
 
 import flickster.shopping.design.R;
+import flickster.shopping.design.Sellers.SellerProductCategoryActivity;
 
 public class AdminMaintainProductsActivity extends AppCompatActivity {
 private Button applyChanges , deleteBtn;

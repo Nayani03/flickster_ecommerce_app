@@ -33,7 +33,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-import flickster.shopping.design.Admin.SellerProductCategoryActivity;
 import flickster.shopping.design.R;
 
 public class SellerAddNewProductActivity extends AppCompatActivity {
@@ -167,7 +166,7 @@ public class SellerAddNewProductActivity extends AppCompatActivity {
     private void StoreProductInformation()
     {
         loadingBar.setTitle("Add New Product");
-        loadingBar.setMessage("Dear Admin, please wait while we are adding the new product.");
+        loadingBar.setMessage("Dear Seller, please wait while we are adding the new product.");
         loadingBar.setCanceledOnTouchOutside(false);
         loadingBar.show();
 
