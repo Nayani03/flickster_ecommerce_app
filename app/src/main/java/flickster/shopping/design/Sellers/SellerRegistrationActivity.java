@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
@@ -68,26 +69,28 @@ sellerLoginBegin.setOnClickListener(new View.OnClickListener() {
 
     private void registerSeller() {
 
-    String name = nameInput.getText().toString();
-        final String phone = phoneInput.getText().toString();
-        String email = emailInput.getText().toString();
-        String password = passwordInput.getText().toString();
-        String address = addressInput.getText().toString();
+    final String name = nameInput.getText().toString();
+    final      String phone = phoneInput.getText().toString();
+        final String email = emailInput.getText().toString();
+         String password = passwordInput.getText().toString();
+     final   String address = addressInput.getText().toString();
 
 
         if(!name.equals("") && !phone.equals("") && !password.equals("") && !address.equals("") ){
+            loadingBar.setTitle("Creating Seller Account");
+            loadingBar.setMessage("Please wait, while we are checking the credentials.");
+            loadingBar.setCanceledOnTouchOutside(false);
+            loadingBar.show();
 
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        loadingBar.setTitle("Creating Seller Account");
-                        loadingBar.setMessage("Please wait, while we are checking the credentials.");
-                        loadingBar.setCanceledOnTouchOutside(false);
-                        loadingBar.show();
 
-                        final DatabaseReference roorRef;
-                        roorRef= FirebaseAuth.getInstance().getReference();
+
+                        final DatabaseReference rootRef;
+
+                        rootRef = FirebaseDatabase.getInstance().getReference();
                         String sid = mAuth.getCurrentUser().getUid();
                         HashMap<String,Object>  sellerMap = new HashMap<>();
                         sellerMap.put("sid",sid);
@@ -96,12 +99,16 @@ sellerLoginBegin.setOnClickListener(new View.OnClickListener() {
                         sellerMap.put("address",address);
                         sellerMap.put("name",name);
 
-                        roorRef.child("Sellers").child(sid).updateChildren(sellerMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        rootRef.child("Sellers").child(sid).updateChildren(sellerMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 Toast.makeText(SellerRegistrationActivity.this, "You are registered successfully.", Toast.LENGTH_SHORT).show();
 
+                                Intent intent = new Intent(SellerRegistrationActivity.this, SellerLoginActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
+                                startActivity(intent);
+                                finish();
                             }
                         });
 
