@@ -9,15 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import flickster.shopping.design.Model.Users;
 import flickster.shopping.design.Prevalent.Prevalent;
 import flickster.shopping.design.R;
@@ -41,8 +40,7 @@ private TextView sellerBegin;
         joinNowButton = findViewById(R.id.main_join_now_btn);
         loginButton = findViewById(R.id.main_login_btn);
         loadingBar = new ProgressDialog(this);
-
-sellerBegin= findViewById(R.id.seller_begin);
+        sellerBegin= findViewById(R.id.seller_begin);
 
         Paper.init(this);
 
@@ -66,7 +64,7 @@ sellerBegin= findViewById(R.id.seller_begin);
             }
         });
 
-sellerBegin.setOnClickListener(new View.OnClickListener() {
+      sellerBegin.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(MainActivity.this, SellerRegistrationActivity.class);

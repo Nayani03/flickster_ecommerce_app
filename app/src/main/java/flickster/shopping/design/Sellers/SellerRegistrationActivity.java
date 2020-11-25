@@ -8,9 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -20,6 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import flickster.shopping.design.R;
 
 public class SellerRegistrationActivity extends AppCompatActivity {
@@ -43,8 +42,8 @@ private FirebaseAuth mAuth;
     passwordInput=findViewById(R.id.seller_password);
     addressInput=findViewById(R.id.seller_shop_address);
     registerButton=findViewById(R.id.seller_register_btn);
-mAuth= FirebaseAuth.getInstance();
-loadingBar = new ProgressDialog(this);
+    mAuth= FirebaseAuth.getInstance();
+     loadingBar = new ProgressDialog(this);
     registerButton.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -70,10 +69,10 @@ sellerLoginBegin.setOnClickListener(new View.OnClickListener() {
     private void registerSeller() {
 
     final String name = nameInput.getText().toString();
-    final      String phone = phoneInput.getText().toString();
-        final String email = emailInput.getText().toString();
-         String password = passwordInput.getText().toString();
-     final   String address = addressInput.getText().toString();
+    final String phone = phoneInput.getText().toString();
+    final String email = emailInput.getText().toString();
+    String password = passwordInput.getText().toString();
+     final  String address = addressInput.getText().toString();
 
 
         if(!name.equals("") && !phone.equals("") && !password.equals("") && !address.equals("") ){
@@ -87,9 +86,7 @@ sellerLoginBegin.setOnClickListener(new View.OnClickListener() {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
 
-
                         final DatabaseReference rootRef;
-
                         rootRef = FirebaseDatabase.getInstance().getReference();
                         String sid = mAuth.getCurrentUser().getUid();
                         HashMap<String,Object>  sellerMap = new HashMap<>();
@@ -102,6 +99,7 @@ sellerLoginBegin.setOnClickListener(new View.OnClickListener() {
                         rootRef.child("Sellers").child(sid).updateChildren(sellerMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
+                                loadingBar.dismiss();
                                 Toast.makeText(SellerRegistrationActivity.this, "You are registered successfully.", Toast.LENGTH_SHORT).show();
 
                                 Intent intent = new Intent(SellerRegistrationActivity.this, SellerLoginActivity.class);

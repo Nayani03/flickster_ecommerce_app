@@ -1,4 +1,4 @@
-package flickster.shopping.design.ui.home;
+package flickster.shopping.design.Sellers.ui.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
